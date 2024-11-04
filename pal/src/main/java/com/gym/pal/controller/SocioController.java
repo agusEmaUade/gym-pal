@@ -4,7 +4,6 @@ import static com.gym.pal.controller.Path.BASE_PATH;
 import static com.gym.pal.controller.Path.CREATE_SOCIO;
 
 import com.gym.pal.controller.dto.SocioRequest;
-import com.gym.pal.domain.dto.SocioDto;
 import com.gym.pal.service.SocioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
