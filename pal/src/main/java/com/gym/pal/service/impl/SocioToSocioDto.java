@@ -9,7 +9,6 @@ import java.util.function.Function;
 public class SocioToSocioDto implements Function<Socio, SocioDto> {
     @Override
     public SocioDto apply(Socio socio){
-     SocioDto dto = new SocioDto();
-     return dto;
+     return SocioDto.builder().name(socio.getNombre()).build();
     }
 }
