@@ -14,6 +14,6 @@ public class EjercicioRepository {
 
     public Ejercicio createUser(Ejercicio ejercicio) {
         ejercicios.add(ejercicio);
-        return ejercicios;
+        return ejercicio;
     }
 }

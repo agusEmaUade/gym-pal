@@ -1,8 +1,15 @@
 package com.gym.pal.domain;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.util.List;
 
+@Builder
+@Getter
+@Setter
 public class Socio {
     private int edad;
     private Sexo sexo;
