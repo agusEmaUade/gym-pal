@@ -29,8 +29,11 @@ public class SocioServiceImpl implements SocioService {
     }
 
     @Override
-    public SocioDto login(LoginRequest request){
-        Optional<Socio> socio = repository.findByEmailAndPass(request.getEmail(), request.getPass());
-        return null;
+    public SocioDto login(LoginRequest request) {
+        Socio socio = repository
+                .findByEmailAndPass(request.getEmail(), request.getPass())
+                .orElseThrow(() -> new RuntimeException("Socio no encontrado"));
+
+        return mapToSocioDto.apply(socio);
     }
 }

@@ -21,6 +21,9 @@ public class SocioRepository implements ISocioRepository{
     }
 
     public Optional<Socio> findByEmailAndPass(String email, String pass) {
-        return null;
+        return socios
+                .stream()
+                .filter(s -> email.equalsIgnoreCase(s.getEmail()) && pass.equalsIgnoreCase(s.getPass()))
+                .findFirst();
     }
 }
