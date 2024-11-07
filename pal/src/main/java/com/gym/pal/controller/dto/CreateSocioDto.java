@@ -5,7 +5,7 @@ import com.gym.pal.model.*;
 
 import java.math.BigDecimal;
 
-public class SocioRequest {
+public class CreateSocioDto {
     @JsonProperty("sexo")
     private Sexo sexo;
     @JsonProperty("peso")

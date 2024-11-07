@@ -1,7 +1,7 @@
 package com.gym.pal.controller;
 
-import com.gym.pal.controller.dto.LoginRequest;
-import com.gym.pal.controller.dto.SocioRequest;
+import com.gym.pal.controller.dto.LoginSocioDto;
+import com.gym.pal.controller.dto.CreateSocioDto;
 import com.gym.pal.controller.dto.SocioDto;
 import com.gym.pal.service.SocioService;
 import jakarta.validation.Valid;
@@ -24,13 +24,13 @@ public class SocioController {
 
     @PostMapping(CREATE_SOCIO)
     public SocioDto crearSocio(
-            @Valid @RequestBody SocioRequest dto) {
+            @Valid @RequestBody CreateSocioDto dto) {
         return service.crear(dto);
     }
 
     @PostMapping(LOGIN)
     public SocioDto login(
-            @Valid @RequestBody LoginRequest dto) {
+            @Valid @RequestBody LoginSocioDto dto) {
         return service.login(dto);
     }
 }

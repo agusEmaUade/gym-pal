@@ -1,10 +1,10 @@
 package com.gym.pal.service;
 
-import com.gym.pal.controller.dto.LoginRequest;
-import com.gym.pal.controller.dto.SocioRequest;
+import com.gym.pal.controller.dto.LoginSocioDto;
+import com.gym.pal.controller.dto.CreateSocioDto;
 import com.gym.pal.controller.dto.SocioDto;
 
 public interface SocioService {
-    SocioDto crear(SocioRequest request);
-    SocioDto login(LoginRequest request);
+    SocioDto crear(CreateSocioDto request);
+    SocioDto login(LoginSocioDto request);
 }

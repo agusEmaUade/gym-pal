@@ -1,15 +1,15 @@
 package com.gym.pal.service.impl;
 
-import com.gym.pal.controller.dto.SocioRequest;
+import com.gym.pal.controller.dto.CreateSocioDto;
 import com.gym.pal.model.Socio;
 
 import java.math.BigDecimal;
 import java.util.function.Function;
 
-public class SocioRequestToSocio implements Function<SocioRequest, Socio> {
+public class SocioRequestToSocio implements Function<CreateSocioDto, Socio> {
 
     @Override
-    public Socio apply(SocioRequest request) {
+    public Socio apply(CreateSocioDto request) {
         return Socio.builder().altura(BigDecimal.ONE).build();
 
     }
