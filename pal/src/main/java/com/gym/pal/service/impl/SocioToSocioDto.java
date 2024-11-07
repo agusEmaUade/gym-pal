@@ -1,8 +1,7 @@
 package com.gym.pal.service.impl;
 
-import com.gym.pal.controller.dto.SocioRequest;
-import com.gym.pal.domain.Socio;
-import com.gym.pal.domain.dto.SocioDto;
+import com.gym.pal.model.Socio;
+import com.gym.pal.controller.dto.SocioDto;
 
 import java.util.function.Function;
 

@@ -1,6 +1,6 @@
 package com.gym.pal.repository;
 
-import com.gym.pal.domain.Medicion;
+import com.gym.pal.model.Medicion;
 
 import java.util.ArrayList;
 import java.util.List;

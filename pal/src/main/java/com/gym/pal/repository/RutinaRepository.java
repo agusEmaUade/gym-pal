@@ -1,6 +1,6 @@
 package com.gym.pal.repository;
 
-import com.gym.pal.domain.Rutina;
+import com.gym.pal.model.Rutina;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.gym.pal.domain;
+package com.gym.pal.model;
 
 public class IAutentificacion {
 }

@@ -2,7 +2,7 @@ package com.gym.pal.controller;
 
 import com.gym.pal.controller.dto.LoginRequest;
 import com.gym.pal.controller.dto.SocioRequest;
-import com.gym.pal.domain.dto.SocioDto;
+import com.gym.pal.controller.dto.SocioDto;
 import com.gym.pal.service.SocioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

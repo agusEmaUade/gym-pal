@@ -1,6 +1,6 @@
 package com.gym.pal.repository;
 
-import com.gym.pal.domain.Socio;
+import com.gym.pal.model.Socio;
 
 import java.util.List;
 import java.util.Optional;

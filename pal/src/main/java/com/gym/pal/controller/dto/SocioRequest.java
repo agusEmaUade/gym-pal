@@ -1,7 +1,7 @@
 package com.gym.pal.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.gym.pal.domain.*;
+import com.gym.pal.model.*;
 
 import java.math.BigDecimal;
 

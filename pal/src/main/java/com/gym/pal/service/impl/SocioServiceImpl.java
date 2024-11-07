@@ -2,14 +2,13 @@ package com.gym.pal.service.impl;
 
 import com.gym.pal.controller.dto.LoginRequest;
 import com.gym.pal.controller.dto.SocioRequest;
-import com.gym.pal.domain.Socio;
-import com.gym.pal.domain.dto.SocioDto;
+import com.gym.pal.model.Socio;
+import com.gym.pal.controller.dto.SocioDto;
 import com.gym.pal.repository.ISocioRepository;
 import com.gym.pal.service.SocioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.function.Function;
 
 @Service

@@ -1,4 +1,4 @@
-package com.gym.pal.domain.dto;
+package com.gym.pal.controller.dto;
 
 import lombok.Builder;
 import lombok.Getter;

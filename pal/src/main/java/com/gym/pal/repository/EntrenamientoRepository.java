@@ -1,6 +1,6 @@
 package com.gym.pal.repository;
 
-import com.gym.pal.domain.Entrenamiento;
+import com.gym.pal.model.Entrenamiento;
 
 import java.util.ArrayList;
 import java.util.List;

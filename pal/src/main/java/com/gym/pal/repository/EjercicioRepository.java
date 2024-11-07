@@ -1,9 +1,8 @@
 package com.gym.pal.repository;
 
-import com.gym.pal.domain.Ejercicio;
-import com.gym.pal.domain.Nivel;
+import com.gym.pal.model.Ejercicio;
+import com.gym.pal.model.Nivel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EjercicioRepository {

@@ -1,6 +1,6 @@
 package com.gym.pal.repository;
 
-import com.gym.pal.domain.Registro;
+import com.gym.pal.model.Registro;
 
 import java.util.ArrayList;
 import java.util.List;
