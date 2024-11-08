@@ -2,6 +2,7 @@ package com.gym.pal.controller;
 
 import com.gym.pal.controller.dto.LoginSocioDto;
 import com.gym.pal.controller.dto.CreateSocioDto;
+import com.gym.pal.controller.dto.MedicionDto;
 import com.gym.pal.controller.dto.SocioDto;
 import com.gym.pal.service.SocioService;
 import jakarta.validation.Valid;
@@ -32,5 +33,11 @@ public class SocioController {
     public SocioDto login(
             @Valid @RequestBody LoginSocioDto dto) {
         return service.login(dto);
+    }
+
+    @PostMapping(MEDICION_PESO)
+    public String registroPeso(
+            @Valid @RequestBody MedicionDto dto) {
+        return service.registroPeso(dto);
     }
 }

@@ -2,6 +2,8 @@ package com.gym.pal.service.impl;
 
 import com.gym.pal.controller.dto.LoginSocioDto;
 import com.gym.pal.controller.dto.CreateSocioDto;
+import com.gym.pal.controller.dto.MedicionDto;
+import com.gym.pal.model.Medicion;
 import com.gym.pal.model.Socio;
 import com.gym.pal.controller.dto.SocioDto;
 import com.gym.pal.repository.ISocioRepository;
@@ -23,6 +25,8 @@ public class SocioServiceImpl implements SocioService {
 
     private final Function<CreateSocioDto, Socio> mapToSocio = new SocioRequestToSocio();
     private final Function<Socio, SocioDto> mapToSocioDto = new SocioToSocioDto();
+
+    private final Function<MedicionDto, Medicion> mapToMedicion = new MedicionDtoToMedicion();
 
     @Override
     public SocioDto crear(CreateSocioDto request) {
@@ -53,5 +57,12 @@ public class SocioServiceImpl implements SocioService {
         }
 
         return mapToSocioDto.apply(socio);
+    }
+
+    @Override
+    public String registroPeso(MedicionDto dto) {
+       Medicion nuevaMedicion = mapToMedicion.apply(dto);
+       repository.actualizarMediciones(dto.getEmail(), nuevaMedicion);
+        return "medicion registrada";
     }
 }
