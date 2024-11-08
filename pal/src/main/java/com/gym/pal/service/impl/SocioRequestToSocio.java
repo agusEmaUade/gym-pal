@@ -10,7 +10,15 @@ public class SocioRequestToSocio implements Function<CreateSocioDto, Socio> {
 
     @Override
     public Socio apply(CreateSocioDto request) {
-        return Socio.builder().altura(BigDecimal.ONE).build();
-
+        return Socio.builder()
+                .email(request.getEmail())
+                .nombre(request.getNombre())
+                .pass(request.getPass())
+                .peso(request.getPeso())
+                .altura(request.getAltura())
+                .edad(request.getEdad())
+                .nivelAerobico(request.getNivelAerobico())
+                .sexo(request.getSexo())
+                .build();
     }
 }

@@ -9,4 +9,5 @@ import lombok.Setter;
 @Setter
 public class SocioDto {
     private String name;
+    private String email;
 }

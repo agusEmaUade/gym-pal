@@ -2,9 +2,10 @@ package com.gym.pal.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gym.pal.model.*;
+import lombok.Getter;
 
 import java.math.BigDecimal;
-
+@Getter
 public class CreateSocioDto {
     @JsonProperty("sexo")
     private Sexo sexo;
@@ -20,4 +21,6 @@ public class CreateSocioDto {
     private String pass;
     @JsonProperty("email")
     private String email;
+    @JsonProperty("edad")
+    private int edad;
 }

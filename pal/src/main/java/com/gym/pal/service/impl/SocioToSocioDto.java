@@ -7,7 +7,10 @@ import java.util.function.Function;
 
 public class SocioToSocioDto implements Function<Socio, SocioDto> {
     @Override
-    public SocioDto apply(Socio socio){
-     return SocioDto.builder().name(socio.getNombre()).build();
+    public SocioDto apply(Socio socio) {
+        return SocioDto.builder()
+                .name(socio.getNombre())
+                .email(socio.getEmail())
+                .build();
     }
 }
