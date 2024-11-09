@@ -15,6 +15,7 @@ Este proyecto es una aplicación RESTful desarrollada en Java utilizando Spring 
 |-------------------------|------------------------|
 |    |       |
 | agustin yañez   | agyanez@uade.edu.ar    |
+| lucas ballesta  | lballesta@uade.edu.ar  |
 
 ## Endpoints de la API
 
