@@ -16,6 +16,7 @@ public class Ejercicio {
     private String exigencia_muscular;
     // private file video;
     private Nivel nivel;
+    private int nivelAerobico;
 
 
 
