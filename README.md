@@ -27,11 +27,18 @@ A continuación, se presenta la lista de endpoints de la API. Estos proporcionan
   - Descripción: Crea un nuevo socio.
   - Ejemplo de solicitud `curl`:
     ```bash
-    curl -X POST http://localhost:8080/api/socios -H "Content-Type: application/json" -d '{
-      "nombre": "Juan Perez",
-      "email": "juan@example.com",
-      "password": "password123"
-    }'
+    curl --location 'http://localhost:8080/api/gym/socio' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pass":"123",
+    "email":"agus@hotmail.com",
+    "sexo": "MASCULINO",
+    "peso": 71,
+    "altura":176.5,
+    "nivelAerobico": 10,
+    "nombre": "agus",
+    "edad": 30
+}'
     ```
 
 - **POST /api/socios/login**
