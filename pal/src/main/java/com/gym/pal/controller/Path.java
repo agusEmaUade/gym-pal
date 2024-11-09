@@ -10,4 +10,9 @@ public interface Path {
     String CREATE_SOCIO = SOCIO_BASE;
     String LOGIN = SOCIO_BASE + "/login";
     String MEDICION_PESO = SOCIO_BASE + "/peso";
+
+    //---------
+    //  RUTINA
+    //---------
+    String RUTINA_BASE = "/rutina";
 }
