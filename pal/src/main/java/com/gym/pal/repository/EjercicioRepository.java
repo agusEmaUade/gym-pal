@@ -33,6 +33,7 @@ public class EjercicioRepository {
         Ejercicio pressMilitar = new Ejercicio("Press Militar", 10, 3, 50, "Hombros", Nivel.ALTO);
 
         return List.of(sentadilla, plancha, saltoConCuerda, curlDeBiceps, saltoconpesa, remoConMancuerna, pressDeBanca, pesoMuerto, pressMilitar);
+   //hola
     }
 
 }
