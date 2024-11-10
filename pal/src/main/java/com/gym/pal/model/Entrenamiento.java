@@ -12,10 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 public class Entrenamiento {
 
+
     private List<Ejercicio> ejercicios;
     private int dias;
     private Musculo musculo;
     private List<Registro> registros;
+    private int horas;
 
 
 }

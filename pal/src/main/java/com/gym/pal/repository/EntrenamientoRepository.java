@@ -21,7 +21,7 @@ public class EntrenamientoRepository {
     }
     private List<Entrenamiento> intEntrenamientos() {
 
-        Entrenamiento bajardepeso = new Entrenamiento(initEjercicio, 1, Musculo.BRAZOS, "Registro1");
+        Entrenamiento bajardepeso = new Entrenamiento(initEjercicio, 1, Musculo.BRAZOS, "Registro1", 1);
         return List.of(bajardepeso);
     }
 }
