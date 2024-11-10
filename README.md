@@ -96,5 +96,6 @@ curl -X POST http://localhost:8080/api/socios -H "Content-Type: application/json
 
 ## Justificacion de patrones
 
-![image](https://github.com/user-attachments/assets/bfe02522-c95c-4338-a7ff-a3432371e808)
+![image](https://github.com/user-attachments/assets/4d679cec-b4df-486b-8ae5-bb7f9680931b)
+
 
