@@ -91,3 +91,10 @@ curl -X POST http://localhost:8080/api/socios -H "Content-Type: application/json
   "email": "juan@example.com",
   "password": "password123"
 }'
+```
+
+
+## Justificacion de patrones
+
+![image](https://github.com/user-attachments/assets/bfe02522-c95c-4338-a7ff-a3432371e808)
+
