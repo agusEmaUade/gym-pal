@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntrenamientoRepository {
-    private List<Entrenamiento> entrenamientos = new ArrayList<>();
+    private List<Entrenamiento> entrenamientos = intEntrenamientos();
 
     public List<Entrenamiento> getAllSocio() {
         return entrenamientos;
@@ -21,7 +21,7 @@ public class EntrenamientoRepository {
     }
     private List<Entrenamiento> intEntrenamientos() {
 
-        Entrenamiento bajardepeso = new Entrenamiento(initEjercicio, 1, Musculo.BRAZOS, "Registro1", 1);
+        Entrenamiento bajardepeso = new Entrenamiento(initEjercicioBajardePeso, 1, Musculo.BRAZOS, "Registro1", 1);
         return List.of(bajardepeso);
     }
 }

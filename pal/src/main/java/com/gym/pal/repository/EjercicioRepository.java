@@ -6,7 +6,8 @@ import com.gym.pal.model.Nivel;
 import java.util.List;
 
 public class EjercicioRepository {
-    private List<Ejercicio> ejercicios = initEjercicio();
+    private List<Ejercicio> ejercicios = initEjercicioBajardePeso();
+    private List<Ejercicio> ejercicios2 = initEjercicioTonificarCuerpo();
 
     public List<Ejercicio> getAllSocio() {
         return ejercicios;
@@ -18,7 +19,7 @@ public class EjercicioRepository {
     }
     private List<Ejercicio> initEjercicioBajardePeso() {
 
-        Ejercicio sentadilla = new Ejercicio("Sentadilla", 12, 4, 60, "Piernas", Nivel.BAJO), 2;
+        Ejercicio sentadilla = new Ejercicio("Sentadilla", 12, 4, 60, "Piernas", Nivel.BAJO, 2);
         Ejercicio plancha = new Ejercicio("Plancha", 30, 3, 0, "Core", Nivel.BAJO, 2 );  // Ejercicio de tiempo en segundos
         Ejercicio saltoConCuerda = new Ejercicio("Salto con Cuerda", 60, 3, 0, "Cardio", Nivel.BAJO, 2);  // Duración en segundos
         return List.of(sentadilla, plancha, saltoConCuerda);
