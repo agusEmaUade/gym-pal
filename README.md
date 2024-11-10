@@ -97,21 +97,27 @@ curl -X POST http://localhost:8080/api/socios -H "Content-Type: application/json
 ## Justificacion de patrones
 
 ![image](https://github.com/user-attachments/assets/4d679cec-b4df-486b-8ae5-bb7f9680931b)
+
 En este caso utilizamos Strategy ya que la autentificacion especifica en el enunciado que es externo a la plataforma y no dice si va a ser actualizado a futuro o cambiado.
 
 ![image](https://github.com/user-attachments/assets/0cd5bf5f-2861-4bfc-99cd-17752f11417f)
+
 En este caso, utilizamos herencia en caso de que haya una actualizacion de la app y se quiera agregar un nuevo objetivo puede agregarse de manera sencilla sin tener que modificar codigo existente, solo agregar.
 
 ![image](https://github.com/user-attachments/assets/2f1da863-e699-41a4-a25b-a3398fa94715)
+
 En ese caso tambien se utilizo herencia por el mismo caso, si se quiere hacer una actualizacion el dia de mañana se pueden agregar torfeos. La diferencia en este caso es que esta asociado a notificador que luego envia una notificacion.
 
 ![image](https://github.com/user-attachments/assets/02c3f77a-7935-40fa-bd2d-4c9aad9652ec)
+
 Medicion posee un controller para setear los datos y el metodo de reforzar. 
 
 ![image](https://github.com/user-attachments/assets/4af936a7-8dc3-4e10-a0a2-ff78077aa78b)
+
 La clase socio posee un controller para crear usuario, autentificar y setear objetivo.
 
 ![image](https://github.com/user-attachments/assets/a4c324d6-08d8-4499-bbdf-d9fe6f289f69)
+
 Rutina, Entrenamiento y registro poseen un controller en conjunto para llevar a cabo sus metodos. 
 
 
