@@ -1,9 +1,8 @@
 package com.gym.pal.service.impl;
 
-import com.gym.pal.controller.dto.CreateSocioDto;
+import com.gym.pal.dto.CreateSocioDto;
 import com.gym.pal.model.Socio;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.function.Function;
 

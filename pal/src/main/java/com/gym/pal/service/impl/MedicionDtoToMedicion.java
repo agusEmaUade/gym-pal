@@ -1,6 +1,6 @@
 package com.gym.pal.service.impl;
 
-import com.gym.pal.controller.dto.MedicionDto;
+import com.gym.pal.dto.MedicionDto;
 import com.gym.pal.model.Medicion;
 
 import java.util.function.Function;

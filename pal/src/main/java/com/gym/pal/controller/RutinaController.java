@@ -1,6 +1,6 @@
 package com.gym.pal.controller;
 
-import com.gym.pal.controller.dto.EjercicioDto;
+import com.gym.pal.dto.EjercicioDto;
 import com.gym.pal.service.RutinaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

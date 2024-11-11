@@ -1,4 +1,4 @@
-package com.gym.pal.controller.dto;
+package com.gym.pal.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gym.pal.model.*;

@@ -2,6 +2,7 @@ package com.gym.pal.repository;
 
 import com.gym.pal.model.Medicion;
 import com.gym.pal.model.Socio;
+import com.gym.pal.service.objetivo.Objetivo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -47,6 +48,14 @@ public class SocioRepository implements ISocioRepository{
             }
 
             mediciones.add(nuevaMedicion);
+        });
+    }
+
+    public void setearObjetivo(String socioId, Objetivo objetivo) {
+        Optional<Socio> socioOpt = findById(socioId);
+
+        socioOpt.ifPresent(socio -> {
+           socio.setObjetivo(objetivo);
         });
     }
 
