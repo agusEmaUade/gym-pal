@@ -12,14 +12,14 @@ import java.util.List;
 public class EjercicioRepository implements IEjercicioRepository {
 
     private List<Ejercicio> ejercicios = initEjercicios();
-
     public Ejercicio crear(Ejercicio ejercicio) {
         ejercicios.add(ejercicio);
+
         return ejercicio;
     }
 
 
-    public List<Ejercicio> getEjerciciosBajarDePeso() {
+    public  List<Ejercicio> getEjerciciosBajarDePeso() {
         return ejercicios.stream().filter(e -> e.getNivelAerobico() >= 3).toList();
     }
 
