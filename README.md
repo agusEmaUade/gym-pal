@@ -98,7 +98,7 @@ curl -X POST http://localhost:8080/api/socios -H "Content-Type: application/json
 
 ![image](https://github.com/user-attachments/assets/4d679cec-b4df-486b-8ae5-bb7f9680931b)
 
-En este caso utilizamos Strategy ya que la autentificacion especifica en el enunciado que es externo a la plataforma y no dice si va a ser actualizado a futuro o cambiado.
+En este caso utilizamos un Adapter ya que la autentificacion especifica en el enunciado que es externo a la plataforma.
 
 ![image](https://github.com/user-attachments/assets/0cd5bf5f-2861-4bfc-99cd-17752f11417f)
 
