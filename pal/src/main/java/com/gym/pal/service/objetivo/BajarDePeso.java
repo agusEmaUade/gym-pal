@@ -46,7 +46,7 @@ public class BajarDePeso extends Objetivo {
                     .subtract(altura.subtract(BigDecimal.valueOf(150))
                             .divide(BigDecimal.valueOf(2.5), RoundingMode.HALF_UP));
         } else {
-            throw new IllegalArgumentException("Sexo no válido. Use 'MASCULINO' o 'FEMENINO'.");
+            throw new IllegalArgumentException("Sexo no válido.");
         }
 
         return pesoIdeal.setScale(2, RoundingMode.HALF_UP);
