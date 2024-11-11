@@ -52,30 +52,33 @@ A continuación, se presenta la lista de endpoints de la API. Estos proporcionan
     }'
     ```
 
+
 ### Pesos
 
 - **POST /api/pesos**
-  - **Descripción**: Registra el peso de un socio en una fecha específica.
+  - **Descripción**: Registra el peso de un socio.
   - **Ejemplo de solicitud**:
     ```bash
     curl --location 'http://localhost:8080/api/gym/socio/peso' \
-    --header 'socio-id: 234sas-addas45-dsd' \
+    --header 'socio-id: 13f9ec89-fc86-4edf-8bda-1d3d62418dff' \
     --header 'Content-Type: application/json' \
     --data '{
-      "masa_muscular": 12,
-      "porcentaje_grasa_corporal": 10,
-      "peso": 10
+        "masa_muscular": 12,
+        "porcentaje_grasa_corporal": 10,
+        "peso": 10
     }'
     ```
 
-### Rutinas
+### Objetivo
 
-- **GET /api/rutinas/{socioId}**
-  - **Descripción**: Obtiene la rutina asignada a un socio específico.
+- **POST /api/objetivo/{objetivo}**
+  - **Descripción**: Registra el objetivo de un socio.
   - **Ejemplo de solicitud**:
     ```bash
-    curl -X GET http://localhost:8080/api/rutinas/1
+    curl --location --request POST 'http://localhost:8080/api/gym/socio/objetivo/bajarDePeso' \
+    --header 'socio-id: 13f9ec89-fc86-4edf-8bda-1d3d62418dff'
     ```
+
 
 > **Nota**: Asegúrate de que la aplicación esté ejecutándose en `localhost` en el puerto `8080` antes de realizar las solicitudes.
 
@@ -86,13 +89,63 @@ A continuación, se muestran algunos ejemplos de pruebas que pueden realizarse p
 ### 1. Creación de Socio
 
 ```bash
+curl --location 'http://localhost:8080/api/gym/socio' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pass":"123",
+    "email":"agus@hotmail.com",
+    "sexo": "MASCULINO",
+    "peso": 71,
+    "altura":176.5,
+    "nivelAerobico": 10,
+    "nombre": "agus",
+    "edad": 30
+}'
+```
+
+### 2. login de Socio
+
+```bash
+curl --location 'http://localhost:8080/api/gym/socio/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pass":"123",
+    "email":"agus@hotmail.com"
+}'
+```
+
+### 3. login de Socio pass incorrecta
+
+```bash
+curl --location 'http://localhost:8080/api/gym/socio/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pass":"3",
+    "email":"agus@hotmail.com"
+}'
+```
+
+### 4. Objetivo de socio
+
+```bash
+curl --location 'http://localhost:8080/api/gym/socio/peso' \
+--header 'socio-id: 13f9ec89-fc86-4edf-8bda-1d3d62418dff' \
+--header 'Content-Type: application/json' \
+--data '{
+    "masa_muscular":12,
+    "porcentaje_grasa_corporal": 10,
+    "peso": 10
+}'
+```
+### 5. Registrar peso socio.
+
+```bash
 curl -X POST http://localhost:8080/api/socios -H "Content-Type: application/json" -d '{
   "nombre": "Juan Perez",
   "email": "juan@example.com",
   "password": "password123"
 }'
 ```
-
 
 ## Justificacion de patrones
 
