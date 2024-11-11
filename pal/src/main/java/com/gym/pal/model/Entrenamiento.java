@@ -1,12 +1,23 @@
 package com.gym.pal.model;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.List;
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
 public class Entrenamiento {
-    private int horas;
+
+
     private List<Ejercicio> ejercicios;
     private int dias;
     private Musculo musculo;
     private List<Registro> registros;
+    private int horas;
+
 
 }

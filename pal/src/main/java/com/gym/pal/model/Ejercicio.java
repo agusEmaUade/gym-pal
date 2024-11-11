@@ -14,8 +14,8 @@ public class Ejercicio {
     private int series;
     private int peso_asignado;
     private String exigencia_muscular;
-    // private file video;
     private Nivel nivel;
+    private int nivelAerobico;
 
 
 
