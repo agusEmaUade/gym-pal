@@ -9,6 +9,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class TonificarCuerpo extends Objetivo {
+
+    @Override
+    public String getType() {
+        return "tonificarCuerpo";
+    }
+
     @Override
     public void crearRutina(List<Entrenamiento> entrenamientos){
         Rutina bajarDePesoRutina = new Rutina();

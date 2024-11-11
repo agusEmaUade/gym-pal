@@ -7,6 +7,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class MantenerFigura extends Objetivo {
+
+    @Override
+    public String getType() {
+        return "mantenerFigura";
+    }
+
     @Override
     public void crearRutina(List<Entrenamiento> entrenamientos){
         Rutina bajarDePesoRutina = new Rutina();

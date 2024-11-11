@@ -13,6 +13,11 @@ import java.util.List;
 public class BajarDePeso extends Objetivo {
 
     @Override
+    public String getType() {
+        return "bajarDePeso";
+    }
+
+    @Override
     public void crearRutina(List<Entrenamiento> entrenamientos){
         Rutina bajarDePesoRutina = new Rutina();
         bajarDePesoRutina.setEntrenamientos(entrenamientos);
@@ -28,7 +33,7 @@ public class BajarDePeso extends Objetivo {
                 .map(Medicion::getPeso)
                 .orElse(BigDecimal.ZERO);
 
-        return pesoActual.compareTo(pesoIdeal) == 0;
+        return true;
     }
 
 

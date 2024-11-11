@@ -15,6 +15,8 @@ public abstract class  Objetivo {
     private Rutina rutina;
 
 
+    public abstract String getType();
+
     abstract  void crearRutina(List<Entrenamiento> entrenamientos);
 
     abstract boolean cumpleObjetivo(Socio socio);

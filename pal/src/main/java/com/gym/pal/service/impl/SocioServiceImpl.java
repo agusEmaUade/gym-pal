@@ -72,8 +72,28 @@ public class SocioServiceImpl implements SocioService {
     public String registroPeso(String socioId, MedicionDto dto) {
        Medicion nuevaMedicion = mapToMedicion.apply(dto);
        repository.actualizarMediciones(socioId, nuevaMedicion);
-       Socio socio = repository.findById(socioId).get();
-       //todo valida si cumple objetivo de peso
+       var socioOptional = repository.findById(socioId);
+       Socio socio = socioOptional.get();
+        if (socio.getObjetivo() != null) {
+            boolean estaCumplido;
+            Objetivo objetivo = socio.getObjetivo();
+            switch (objetivo.getType()) {
+                case "bajarDePeso":
+                    estaCumplido = ((BajarDePeso) objetivo).cumpleObjetivo(socio);
+                    break;
+                case "tonificarCuerpo":
+                    estaCumplido = ((TonificarCuerpo) objetivo).cumpleObjetivo(socio);
+                    break;
+                case "mantenerFigura":
+                    estaCumplido = ((MantenerFigura) objetivo).cumpleObjetivo(socio);
+                    break;
+                default:
+                    throw new RuntimeException("objetivo invalido");
+            }
+        } else {
+
+            throw new RuntimeException("El socio no tiene un objetivo asignado.");
+        }
         return "medicion registrada";
     }
 
@@ -85,14 +105,17 @@ public class SocioServiceImpl implements SocioService {
             case "bajarDePeso":
                 iniciarObjetivo = new BajarDePeso();
                 ejercicioList = ejercicioRepository.getEjerciciosBajarDePeso();
+                ((BajarDePeso) iniciarObjetivo).crearRutina(initEntrenamiento(60, ejercicioList));
                 break;
             case "tonificarCuerpo":
                 iniciarObjetivo = new TonificarCuerpo();
-                ejercicioList = ejercicioRepository.getEjerciciosBajarDePeso();
+                ejercicioList = ejercicioRepository.getEjerciciosTonificarCuerpo();
+                ((TonificarCuerpo) iniciarObjetivo).crearRutina(initEntrenamiento(120, ejercicioList));
                 break;
             case "mantenerFigura":
                 iniciarObjetivo = new MantenerFigura();
-                ejercicioList = ejercicioRepository.getEjerciciosBajarDePeso();
+                ejercicioList = ejercicioRepository.getEjerciciosMantenerFigura();
+                ((MantenerFigura) iniciarObjetivo).crearRutina(initEntrenamiento(45, ejercicioList));
                 break;
             default:
                 throw new RuntimeException("objetivo invalido");
