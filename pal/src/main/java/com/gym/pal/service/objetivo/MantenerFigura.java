@@ -1,10 +1,9 @@
 package com.gym.pal.service.objetivo;
 
-import com.gym.pal.model.Entrenamiento;
-import com.gym.pal.model.Rutina;
-import com.gym.pal.model.Socio;
+import com.gym.pal.model.*;
 import com.gym.pal.service.objetivo.Objetivo;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class MantenerFigura extends Objetivo {
@@ -17,6 +16,29 @@ public class MantenerFigura extends Objetivo {
 
     @Override
     public boolean cumpleObjetivo(Socio socio) {
+        BigDecimal pesoInicial = socio.getMediciones().stream()
+                .findFirst()
+                .map(medicion -> medicion.getPeso())
+                .orElse(BigDecimal.ZERO);
 
+
+        if (pesoInicial.equals(BigDecimal.ZERO)) {
+            return false;
+        }
+
+
+        BigDecimal rangoTolerancia = BigDecimal.valueOf(5); // N es configurable, por ejemplo, +-5kg
+
+        BigDecimal pesoActual = socio.getMediciones().stream()
+                .reduce((first, second) -> second)
+                .map(medicion -> medicion.getPeso())
+                .orElse(BigDecimal.ZERO);
+
+
+        BigDecimal diferencia = pesoActual.subtract(pesoInicial).abs();
+        return true;
     }
+
+
+
 }
