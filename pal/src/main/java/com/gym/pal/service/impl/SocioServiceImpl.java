@@ -1,14 +1,13 @@
 package com.gym.pal.service.impl;
 
-import com.gym.pal.dto.LoginSocioDto;
-import com.gym.pal.dto.CreateSocioDto;
-import com.gym.pal.dto.MedicionDto;
+import com.gym.pal.dto.Notificacion;
+import com.gym.pal.dto.*;
 import com.gym.pal.model.*;
-import com.gym.pal.dto.SocioDto;
 import com.gym.pal.repository.IEjercicioRepository;
 import com.gym.pal.repository.ISocioRepository;
 import com.gym.pal.service.SocioService;
 import com.gym.pal.service.autenticacion.IAutenticacion;
+import com.gym.pal.service.notificacion.INotificador;
 import com.gym.pal.service.objetivo.BajarDePeso;
 import com.gym.pal.service.objetivo.MantenerFigura;
 import com.gym.pal.service.objetivo.Objetivo;
@@ -31,6 +30,9 @@ public class SocioServiceImpl implements SocioService {
 
     @Autowired
     private IAutenticacion autenticacionService;
+
+    @Autowired
+    private INotificador notificadorSerivice;
 
     private final Function<CreateSocioDto, Socio> mapToSocio = new SocioRequestToSocio();
     private final Function<Socio, SocioDto> mapToSocioDto = new SocioToSocioDto();
@@ -70,12 +72,12 @@ public class SocioServiceImpl implements SocioService {
 
     @Override
     public String registroPeso(String socioId, MedicionDto dto) {
-       Medicion nuevaMedicion = mapToMedicion.apply(dto);
-       repository.actualizarMediciones(socioId, nuevaMedicion);
-       var socioOptional = repository.findById(socioId);
-       Socio socio = socioOptional.get();
+        boolean estaCumplido;
+        Medicion nuevaMedicion = mapToMedicion.apply(dto);
+        repository.actualizarMediciones(socioId, nuevaMedicion);
+        var socioOptional = repository.findById(socioId);
+        Socio socio = socioOptional.get();
         if (socio.getObjetivo() != null) {
-            boolean estaCumplido;
             Objetivo objetivo = socio.getObjetivo();
             switch (objetivo.getType()) {
                 case "bajarDePeso":
@@ -93,6 +95,25 @@ public class SocioServiceImpl implements SocioService {
         } else {
 
             throw new RuntimeException("El socio no tiene un objetivo asignado.");
+        }
+        if (estaCumplido) {
+            var not = Notificacion.builder()
+                    .socio(socio)
+                    .descripcion("objetivo cumpido")
+                    .mensaje("grande")
+                    .build();
+
+            notificadorSerivice.notificar(not);
+            repository.actualizarTrofeos(socioId, "trofeo a la dedicacion");
+        }
+        if (socio.getMediciones().stream().count() > 3) {
+            var notCreido = Notificacion.builder()
+                    .socio(socio)
+                    .descripcion("segui pesandote")
+                    .mensaje("grande")
+                    .build();
+            notificadorSerivice.notificar(notCreido);
+            repository.actualizarTrofeos(socioId, "trofeo al creido");
         }
         return "medicion registrada";
     }
@@ -124,7 +145,7 @@ public class SocioServiceImpl implements SocioService {
         return "objetivo registrado";
     }
 
-    private List<Entrenamiento> initEntrenamiento(int horaEnMinutos,  List<Ejercicio> ejercicioList){
+    private List<Entrenamiento> initEntrenamiento(int horaEnMinutos, List<Ejercicio> ejercicioList) {
         List<Musculo> musculos = List.of(Musculo.PECHO, Musculo.BRAZOS, Musculo.ESPALDA);
         List<Entrenamiento> entrenamientos = new ArrayList<>();
 

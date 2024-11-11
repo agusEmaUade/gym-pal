@@ -59,4 +59,19 @@ public class SocioRepository implements ISocioRepository{
         });
     }
 
+    public void actualizarTrofeos(String socioId, String trofeo) {
+        Optional<Socio> socioOpt = findById(socioId);
+
+        socioOpt.ifPresent(socio -> {
+            List<String> trofeos = socio.getTrofeos();
+
+            if (trofeos == null) {
+                trofeos = new ArrayList<>();
+                socio.setTrofeos(trofeos);
+            }
+
+            trofeos.add(trofeo);
+        });
+    }
+
 }

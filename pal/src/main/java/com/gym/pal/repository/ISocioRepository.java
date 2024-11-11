@@ -19,4 +19,6 @@ public interface ISocioRepository {
     void actualizarMediciones(String socioId, Medicion nuevaMedicion);
 
     void setearObjetivo(String socioId, Objetivo objetivo);
+
+    void actualizarTrofeos(String socioId, String trofeo);
 }
