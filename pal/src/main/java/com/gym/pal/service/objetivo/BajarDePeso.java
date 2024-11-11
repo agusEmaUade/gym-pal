@@ -1,9 +1,6 @@
 package com.gym.pal.service.objetivo;
 
-import com.gym.pal.model.Entrenamiento;
-import com.gym.pal.model.Musculo;
-import com.gym.pal.model.Rutina;
-import com.gym.pal.model.Sexo;
+import com.gym.pal.model.*;
 import com.gym.pal.service.objetivo.Objetivo;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +20,19 @@ public class BajarDePeso extends Objetivo {
     }
 
     @Override
-    public BigDecimal cumpleObjetivo(Sexo sexo, BigDecimal peso, BigDecimal altura) {
+    public boolean cumpleObjetivo(Socio socio) {
+        BigDecimal pesoIdeal = calcularPesoIdeal(socio.getSexo(), socio.getPeso(), socio.getAltura());
+
+        BigDecimal pesoActual = socio.getMediciones().stream()
+                .reduce((first, second) -> second)
+                .map(Medicion::getPeso)
+                .orElse(BigDecimal.ZERO);
+
+        return pesoActual.compareTo(pesoIdeal) == 0;
+    }
+
+
+    private BigDecimal calcularPesoIdeal(Sexo sexo, BigDecimal peso, BigDecimal altura){
         BigDecimal pesoIdeal = BigDecimal.ZERO;
 
         altura = altura.multiply(BigDecimal.valueOf(100));

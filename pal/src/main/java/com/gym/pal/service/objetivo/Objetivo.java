@@ -2,6 +2,7 @@ package com.gym.pal.service.objetivo;
 
 import com.gym.pal.model.Entrenamiento;
 import com.gym.pal.model.Rutina;
+import com.gym.pal.model.Socio;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +17,5 @@ public abstract class  Objetivo {
 
     abstract  void crearRutina(List<Entrenamiento> entrenamientos);
 
-    abstract void cumpleObjetivo();
+    abstract boolean cumpleObjetivo(Socio socio);
 }
