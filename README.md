@@ -1,3 +1,14 @@
+# Materia Proceso de Desarrollo de Software
+
+Profesores: Stricagnoli Matias Damian - Amaya Martin Daniel
+
+## Integrantes del Proyecto
+
+| Nombre           | Email                   |
+|------------------|-------------------------|
+| Agustín Yáñez    | agyanez@uade.edu.ar     |
+| Lucas Ballesta   | lballesta@uade.edu.ar   |
+
 # Proyecto de Gestión de Rutinas de Gimnasio
 
 Este proyecto es una aplicación RESTful desarrollada en Java utilizando Spring Boot. Su objetivo es gestionar rutinas de gimnasio, registrando datos de socios, pesos y rutinas asignadas.
@@ -9,12 +20,6 @@ Este proyecto es una aplicación RESTful desarrollada en Java utilizando Spring 
 - **Gradle**: Herramienta de construcción utilizada para la gestión de dependencias y configuración del proyecto.
 - **Lombok**: Biblioteca para reducir el boilerplate en el código.
 
-## Integrantes del Proyecto
-
-| Nombre           | Email                   |
-|------------------|-------------------------|
-| Agustín Yáñez    | agyanez@uade.edu.ar     |
-| Lucas Ballesta   | lballesta@uade.edu.ar   |
 
 ## Endpoints de la API
 
