@@ -1,47 +1,69 @@
 package com.gym.pal.repository;
 
 import com.gym.pal.model.Ejercicio;
-import com.gym.pal.model.Nivel;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class EjercicioRepository {
-    private List<Ejercicio> ejercicios = initEjercicioBajardePeso();
-    private List<Ejercicio> ejercicios2 = initEjercicioTonificarCuerpo();
 
-    public List<Ejercicio> getAllSocio() {
-        return ejercicios;
+    private List<Ejercicio> ejerciciosBajarDePeso = new ArrayList<>();
+    private List<Ejercicio> ejerciciosTonificarCuerpo = new ArrayList<>();
+    private List<Ejercicio> ejerciciosMantenerFigura = new ArrayList<>();
+
+    public EjercicioRepository() {
+        initEjercicios();
     }
 
-    public Ejercicio createUser(Ejercicio ejercicio) {
-        ejercicios.add(ejercicio);
+    public List<Ejercicio> getEjerciciosBajarDePeso() {
+        return ejerciciosBajarDePeso;
+    }
+
+    public List<Ejercicio> getEjerciciosTonificarCuerpo() {
+        return ejerciciosTonificarCuerpo;
+    }
+
+    public List<Ejercicio> getEjerciciosMantenerFigura() {
+        return ejerciciosMantenerFigura;
+    }
+
+    public Ejercicio addEjercicio(Ejercicio ejercicio) {
+        clasificarEjercicio(ejercicio);
         return ejercicio;
     }
-    private List<Ejercicio> initEjercicioBajardePeso() {
 
-        Ejercicio sentadilla = new Ejercicio("Sentadilla", 12, 4, 60, "Piernas", Nivel.BAJO, 2);
-        Ejercicio plancha = new Ejercicio("Plancha", 30, 3, 0, "Core", Nivel.BAJO, 2 );  // Ejercicio de tiempo en segundos
-        Ejercicio saltoConCuerda = new Ejercicio("Salto con Cuerda", 60, 3, 0, "Cardio", Nivel.BAJO, 2);  // Duración en segundos
-        return List.of(sentadilla, plancha, saltoConCuerda);
+    private void initEjercicios() {
+        Ejercicio sentadilla = new Ejercicio("Sentadilla", 12, 4, 60, "Piernas", 2);
+        Ejercicio plancha = new Ejercicio("Plancha", 30, 3, 0, "Core", 1);
+        Ejercicio saltoConCuerda = new Ejercicio("Salto con Cuerda", 60, 3, 0, "Cardio", 3);
+        Ejercicio curlDeBiceps = new Ejercicio("Curl de Bíceps", 15, 4, 20, "Bíceps", 2);
+        Ejercicio saltoConPesa = new Ejercicio("Salto con pesa", 10, 4, 40, "Piernas", 4);
+        Ejercicio remoConMancuerna = new Ejercicio("Remo con Mancuerna", 12, 4, 30, "Espalda", 3);
+        Ejercicio pressDeBanca = new Ejercicio("Press de Banca", 10, 3, 80, "Pectorales", 5);
+        Ejercicio pesoMuerto = new Ejercicio("Peso Muerto", 8, 4, 100, "Espalda Baja", 4);
+        Ejercicio pressMilitar = new Ejercicio("Press Militar", 10, 3, 50, "Hombros", 5);
 
-    }
-    private List<Ejercicio> initEjercicioTonificarCuerpo() {
-       Ejercicio curlDeBiceps = new Ejercicio("Curl de Bíceps", 15, 4, 20, "Bíceps", Nivel.MEDIO,5);
-        Ejercicio saltoconpesa = new Ejercicio("Salto con pesa", 10, 4, 40, "Piernas", Nivel.MEDIO,5 );
-        Ejercicio remoConMancuerna = new Ejercicio("Remo con Mancuerna", 12, 4, 30, "Espalda", Nivel.MEDIO,5;
-        return List.of(curlDeBiceps, saltoconpesa, remoConMancuerna);
-
-    }
-    private List<Ejercicio> initEjercicioMantenerLaFigura() {
-        Ejercicio pressDeBanca = new Ejercicio("Press de Banca", 10, 3, 80, "Pectorales", Nivel.ALTO,3);
-        Ejercicio pesoMuerto = new Ejercicio("Peso Muerto", 8, 4, 100, "Espalda Baja", Nivel.ALTO,3);
-        Ejercicio pressMilitar = new Ejercicio("Press Militar", 10, 3, 50, "Hombros", Nivel.ALTO,3);
-
-
-        return List.of(pressDeBanca, pesoMuerto, pressMilitar);
-
+        clasificarEjercicio(sentadilla);
+        clasificarEjercicio(plancha);
+        clasificarEjercicio(saltoConCuerda);
+        clasificarEjercicio(curlDeBiceps);
+        clasificarEjercicio(saltoConPesa);
+        clasificarEjercicio(remoConMancuerna);
+        clasificarEjercicio(pressDeBanca);
+        clasificarEjercicio(pesoMuerto);
+        clasificarEjercicio(pressMilitar);
     }
 
+    private void clasificarEjercicio(Ejercicio ejercicio) {
+        int nivelAerobico = ejercicio.getNivelAerobico();
 
-
+        if (nivelAerobico >= 3) {
+            ejerciciosBajarDePeso.add(ejercicio);
+        }
+        if (nivelAerobico <= 4) {
+            ejerciciosTonificarCuerpo.add(ejercicio);
+        }
+        if (nivelAerobico >= 2 && nivelAerobico <= 4) {
+            ejerciciosMantenerFigura.add(ejercicio);
+        }
+    }
 }
