@@ -19,7 +19,7 @@ public class EjercicioRepository implements IEjercicioRepository {
     }
 
 
-    public List<Ejercicio> getEjerciciosBajarDePeso() {
+    public  List<Ejercicio> getEjerciciosBajarDePeso() {
         return ejercicios.stream().filter(e -> e.getNivelAerobico() >= 3).toList();
     }
 
