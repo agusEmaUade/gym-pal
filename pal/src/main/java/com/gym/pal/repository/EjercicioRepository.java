@@ -14,15 +14,15 @@ public class EjercicioRepository {
         initEjercicios();
     }
 
-    public List<Ejercicio> getEjerciciosBajarDePeso() {
+    public static List<Ejercicio> getEjerciciosBajarDePeso() {
         return ejerciciosBajarDePeso;
     }
 
-    public List<Ejercicio> getEjerciciosTonificarCuerpo() {
+    public static List<Ejercicio> getEjerciciosTonificarCuerpo() {
         return ejerciciosTonificarCuerpo;
     }
 
-    public List<Ejercicio> getEjerciciosMantenerFigura() {
+    public static List<Ejercicio> getEjerciciosMantenerFigura() {
         return ejerciciosMantenerFigura;
     }
 
