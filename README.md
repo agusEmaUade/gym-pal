@@ -104,7 +104,7 @@ En este caso utilizamos un Adapter ya que la autentificacion especifica en el en
 
 ![image](https://github.com/user-attachments/assets/0cd5bf5f-2861-4bfc-99cd-17752f11417f)
 
-En este caso, utilizamos herencia en caso de que haya una actualizacion de la app y se quiera agregar un nuevo objetivo puede agregarse de manera sencilla sin tener que modificar codigo existente, solo agregar.
+En este caso, utilizamos herencia en caso de que haya una actualizacion en el sistema y se quiera agregar un nuevo objetivo puede agregarse de manera sencilla sin tener que modificar codigo existente, solo agregar.
 
 -----------------------------------------------------------------------------------------
 
@@ -128,7 +128,7 @@ La clase socio posee un controller para crear usuario, autentificar y setear obj
 
 ![image](https://github.com/user-attachments/assets/a4c324d6-08d8-4499-bbdf-d9fe6f289f69)
 
-Rutina, Entrenamiento y registro poseen un controller en conjunto para llevar a cabo sus metodos. 
+Rutina, Entrenamiento y registro poseen un controller en conjunto para llevar a cabo sus metodos.  La clase rutina posee una lista de entrenamientos, que a su vez posee una lisa con los registros y ejercicios a llevar a cabo.
 
 
 
