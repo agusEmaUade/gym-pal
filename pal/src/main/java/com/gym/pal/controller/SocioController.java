@@ -34,14 +34,14 @@ public class SocioController {
 
     @PostMapping(MEDICION_PESO)
     public String registroPeso(
-            @Valid @RequestHeader String socioId,
+            @Valid @RequestHeader("socio-id") String socioId,
             @Valid @RequestBody MedicionDto dto) {
         return service.registroPeso(socioId, dto);
     }
 
     @PostMapping(SET_OBJETIVO)
     public String registrarObjetivo(
-            @Valid @RequestHeader String socioId,
+            @Valid @RequestHeader("socio-id") String socioId,
             @PathVariable String  tipoObjetivo) {
         return service.registrarObjetivo(socioId, tipoObjetivo);
     }

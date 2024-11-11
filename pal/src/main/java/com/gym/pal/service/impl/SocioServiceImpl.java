@@ -72,6 +72,8 @@ public class SocioServiceImpl implements SocioService {
     public String registroPeso(String socioId, MedicionDto dto) {
        Medicion nuevaMedicion = mapToMedicion.apply(dto);
        repository.actualizarMediciones(socioId, nuevaMedicion);
+       Socio socio = repository.findById(socioId).get();
+       //todo valida si cumple objetivo de peso
         return "medicion registrada";
     }
 

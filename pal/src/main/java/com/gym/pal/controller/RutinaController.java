@@ -19,7 +19,7 @@ public class RutinaController {
 
     @PostMapping(RUTINA_BASE)
     public void registrarEjercicio(
-            @Valid @RequestHeader String socioId,
+            @Valid @RequestHeader("socio-id") String socioId,
             @Valid @RequestBody EjercicioDto dto) {
         service.registrar(dto, socioId);
     }
