@@ -2,9 +2,10 @@ package com.gym.pal.service.objetivo;
 
 import com.gym.pal.model.Entrenamiento;
 import com.gym.pal.model.Rutina;
+import com.gym.pal.model.Sexo;
 import com.gym.pal.model.Socio;
-import com.gym.pal.service.objetivo.Objetivo;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class TonificarCuerpo extends Objetivo {
@@ -17,6 +18,10 @@ public class TonificarCuerpo extends Objetivo {
 
     @Override
     public boolean cumpleObjetivo(Socio socio) {
+        return getCalculoPorcentajeMasa(socio.getSexo(), socio.getPeso(), socio.getAltura());
+    }
 
+    private boolean getCalculoPorcentajeMasa(Sexo sexo, BigDecimal peso, BigDecimal altura){
+        return true;
     }
 }
