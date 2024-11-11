@@ -28,15 +28,15 @@ public class SocioRepository implements ISocioRepository{
                 .findFirst();
     }
 
-    public Optional<Socio> findByEmail(String email) {
+    public Optional<Socio> findById(String id) {
         return socios
                 .stream()
-                .filter(s -> email.equalsIgnoreCase(s.getEmail()))
+                .filter(s -> id.equalsIgnoreCase(s.getId()))
                 .findFirst();
     }
 
-    public void actualizarMediciones(String email, Medicion nuevaMedicion) {
-        Optional<Socio> socioOpt = findByEmail(email);
+    public void actualizarMediciones(String socioId, Medicion nuevaMedicion) {
+        Optional<Socio> socioOpt = findById(socioId);
 
         socioOpt.ifPresent(socio -> {
             List<Medicion> mediciones = socio.getMediciones();

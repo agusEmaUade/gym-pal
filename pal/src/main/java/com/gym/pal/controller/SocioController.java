@@ -8,10 +8,7 @@ import com.gym.pal.service.SocioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.gym.pal.controller.Path.*;
 
@@ -37,7 +34,15 @@ public class SocioController {
 
     @PostMapping(MEDICION_PESO)
     public String registroPeso(
+            @Valid @RequestHeader String socioId,
             @Valid @RequestBody MedicionDto dto) {
-        return service.registroPeso(dto);
+        return service.registroPeso(socioId, dto);
+    }
+
+    @PostMapping(SET_OBJETIVO)
+    public String registrarObjetivo(
+            @Valid @RequestHeader String socioId,
+            @PathVariable String  tipoObjetivo) {
+        return service.registrarObjetivo(socioId, tipoObjetivo);
     }
 }

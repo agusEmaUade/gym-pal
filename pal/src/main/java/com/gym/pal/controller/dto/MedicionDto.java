@@ -13,6 +13,4 @@ public class MedicionDto {
     private BigDecimal porcentajeGrasaCorporal;
     @JsonProperty("peso")
     private BigDecimal peso;
-    @JsonProperty("email")
-    private String email;
 }

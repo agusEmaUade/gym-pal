@@ -10,5 +10,7 @@ public interface SocioService {
 
     SocioDto login(LoginSocioDto request);
 
-    String registroPeso(MedicionDto dto);
+    String registroPeso(String socioId, MedicionDto dto);
+
+    String registrarObjetivo(String socioId, String tipoObjetivo);
 }

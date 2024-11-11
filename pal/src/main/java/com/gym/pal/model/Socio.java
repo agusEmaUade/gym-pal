@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Socio {
+    private String id;
     private int edad;
     private Sexo sexo;
     private BigDecimal peso;

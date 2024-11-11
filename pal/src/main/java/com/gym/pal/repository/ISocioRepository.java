@@ -14,5 +14,5 @@ public interface ISocioRepository {
     Optional<Socio> findByEmailAndPass(String email, String pass);
     Optional<Socio> findByEmail(String email);
 
-    void actualizarMediciones(String email, Medicion nuevaMedicion);
+    void actualizarMediciones(String socioId, Medicion nuevaMedicion);
 }

@@ -60,9 +60,15 @@ public class SocioServiceImpl implements SocioService {
     }
 
     @Override
-    public String registroPeso(MedicionDto dto) {
+    public String registroPeso(String socioId, MedicionDto dto) {
        Medicion nuevaMedicion = mapToMedicion.apply(dto);
-       repository.actualizarMediciones(dto.getEmail(), nuevaMedicion);
+       repository.actualizarMediciones(socioId, nuevaMedicion);
         return "medicion registrada";
+    }
+
+    @Override
+    public String registrarObjetivo(String socioId, String tipoObjetivo) {
+
+        return "objetivo registrado";
     }
 }
