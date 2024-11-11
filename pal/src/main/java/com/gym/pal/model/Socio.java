@@ -1,5 +1,6 @@
 package com.gym.pal.model;
 
+import com.gym.pal.service.objetivo.Objetivo;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +22,6 @@ public class Socio {
     private String nombre;
     private String pass;
     private String email;
-    private Rutina rutina;
-    private List<Trofeo> trofeos;
     private Objetivo objetivo;
+    private List<Trofeo> trofeos;
 }

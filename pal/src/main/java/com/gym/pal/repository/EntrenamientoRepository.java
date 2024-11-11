@@ -11,17 +11,14 @@ import java.util.List;
 public class EntrenamientoRepository {
     private List<Entrenamiento> entrenamientos = intEntrenamientos();
 
-    public List<Entrenamiento> getAllSocio() {
-        return entrenamientos;
-    }
-
     public Entrenamiento createUser(Entrenamiento entrenamiento) {
         entrenamientos.add(entrenamiento);
         return entrenamiento;
     }
     private List<Entrenamiento> intEntrenamientos() {
 
-        Entrenamiento bajardepeso = new Entrenamiento(initEjercicioBajardePeso, 1, Musculo.BRAZOS, "Registro1", 1);
-        return List.of(bajardepeso);
+        //Entrenamiento bajardepeso = new Entrenamiento(initEjercicioBajardePeso, 1, Musculo.BRAZOS, "Registro1", 1);
+        //return List.of(bajardepeso);
+        return null;
     }
 }

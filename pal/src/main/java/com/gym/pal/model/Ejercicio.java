@@ -16,11 +16,4 @@ public class Ejercicio {
     private String exigencia_muscular;
     private Nivel nivel;
     private int nivelAerobico;
-
-
-
-
-
-
-
 }
