@@ -156,37 +156,31 @@ curl -X POST http://localhost:8080/api/socios -H "Content-Type: application/json
 
 ![image](https://github.com/user-attachments/assets/4d679cec-b4df-486b-8ae5-bb7f9680931b)
 
-En este caso utilizamos un Adapter ya que la autentificacion especifica en el enunciado que es externo a la plataforma.
+En este caso utilizamos un patron Adapter ya que la autentificacion especifica en el enunciado que es externo a la plataforma. A demas de poder trabajar de manera independiente en cada caso generando un mayor grado de escalabilidad y alta cohesion
 
 -----------------------------------------------------------------------------------------
 
 ![image](https://github.com/user-attachments/assets/0cd5bf5f-2861-4bfc-99cd-17752f11417f)
 
-En este caso, utilizamos herencia en caso de que haya una actualizacion en el sistema y se quiera agregar un nuevo objetivo puede agregarse de manera sencilla sin tener que modificar codigo existente, solo agregar.
+Para el caso de los objetivos creamos la clase objetivo como padre que tiene de hijos a los distintos objetivos creados en caso de que haya una actualizacion en el sistema y se quiera agregar un nuevo objetivo puede agregarse de manera sencilla sin tener que modificar codigo existente, solo agregar.
 
 -----------------------------------------------------------------------------------------
 
 ![image](https://github.com/user-attachments/assets/2f1da863-e699-41a4-a25b-a3398fa94715)
 
-En ese caso tambien se utilizo herencia por el mismo caso, si se quiere hacer una actualizacion el dia de mañana se pueden agregar torfeos. La diferencia en este caso es que esta asociado a notificador que luego envia una notificacion.
-
------------------------------------------------------------------------------------------
-
-![image](https://github.com/user-attachments/assets/02c3f77a-7935-40fa-bd2d-4c9aad9652ec)
-
-Medicion posee un controller para setear los datos y el metodo de reforzar. 
+En ese caso tambien utilizamos herencia por el mismo caso, si se quiere hacer una actualizacion el dia de mañana se pueden agregar torfeos. La diferencia en este caso es que esta asociado a notificador que luego envia una notificacion depende cada trofeo. Como por ejemplo en el caso del Trofeo a la dedicacion se enviaria en el caso de que el "socio" cumpla con su objetivo.
 
 -----------------------------------------------------------------------------------------
 
 ![image](https://github.com/user-attachments/assets/4af936a7-8dc3-4e10-a0a2-ff78077aa78b)
 
-La clase socio posee un controller para crear usuario, autentificar y setear objetivo.
+La clase socio posee un controller para crear usuario, autentificar y setear objetivo. Este controller es el punto de entrada, donde se encuentran definidos nuestros endpoint de la aplicacion ya que decidimos aplicar el patron de arquitectura MVC.
 
 -----------------------------------------------------------------------------------------
 
-![image](https://github.com/user-attachments/assets/a4c324d6-08d8-4499-bbdf-d9fe6f289f69)
+![image](https://github.com/user-attachments/assets/440f8e9d-7201-4fe7-8e36-491f30130e11)
 
-Rutina, Entrenamiento y registro poseen un controller en conjunto para llevar a cabo sus metodos.  La clase rutina posee una lista de entrenamientos, que a su vez posee una lisa con los registros y ejercicios a llevar a cabo.
+Rutina posee un controller en en el que se registran los ejercicios. A demas esta clase rutina posee una lista de entrenamientos, que a su vez posee una lista con los registros y ejercicios a llevar a cabo. Y siempre respetando el MVC 
 
 
 
