@@ -162,7 +162,7 @@ En este caso utilizamos un patron Adapter ya que la autentificacion especifica e
 
 ![image](https://github.com/user-attachments/assets/0cd5bf5f-2861-4bfc-99cd-17752f11417f)
 
-Para el caso de los objetivos creamos la clase objetivo como padre que tiene de hijos a los distintos objetivos creados en caso de que haya una actualizacion en el sistema y se quiera agregar un nuevo objetivo puede agregarse de manera sencilla sin tener que modificar codigo existente, solo agregar.
+Para el caso de los objetivos creamos la clase objetivo como padre que tiene de hijos a los distintos objetivos creados. En caso de que haya una actualizacion en el sistema y se quiera agregar un nuevo objetivo puede agregarse de manera sencilla sin tener que modificar codigo existente, solo agregar.
 
 -----------------------------------------------------------------------------------------
 
@@ -172,7 +172,8 @@ En ese caso tambien utilizamos herencia por el mismo caso, si se quiere hacer un
 
 -----------------------------------------------------------------------------------------
 
-![image](https://github.com/user-attachments/assets/4af936a7-8dc3-4e10-a0a2-ff78077aa78b)
+![image](https://github.com/user-attachments/assets/3224d4aa-941f-44e1-845c-61d3894e3d06)
+
 
 La clase socio posee un controller para crear usuario, autentificar y setear objetivo. Este controller es el punto de entrada, donde se encuentran definidos nuestros endpoint de la aplicacion ya que decidimos aplicar el patron de arquitectura MVC.
 
