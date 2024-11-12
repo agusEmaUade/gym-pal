@@ -1,6 +1,5 @@
 package com.gym.pal.service.impl;
 
-import com.gym.pal.dto.Notificacion;
 import com.gym.pal.dto.*;
 import com.gym.pal.model.*;
 import com.gym.pal.repository.IEjercicioRepository;
@@ -12,6 +11,9 @@ import com.gym.pal.service.objetivo.BajarDePeso;
 import com.gym.pal.service.objetivo.MantenerFigura;
 import com.gym.pal.service.objetivo.Objetivo;
 import com.gym.pal.service.objetivo.TonificarCuerpo;
+import com.gym.pal.service.observer.IObserver;
+import com.gym.pal.service.observer.ObservadorNotificacion;
+import com.gym.pal.service.observer.ObservadorTrofeo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,8 @@ public class SocioServiceImpl implements SocioService {
     @Autowired
     private INotificador notificadorSerivice;
 
+    private List<IObserver> listObservers = new ArrayList<>();
+
     private final Function<CreateSocioDto, Socio> mapToSocio = new SocioRequestToSocio();
     private final Function<Socio, SocioDto> mapToSocioDto = new SocioToSocioDto();
 
@@ -49,10 +53,12 @@ public class SocioServiceImpl implements SocioService {
         }
 
         Socio socio = mapToSocio.apply(request);
-        repository.crear(socio);
+
         if (!autenticacionService.registrar(request.getEmail(), request.getPass())) {
             throw new RuntimeException("no se pudo registrar");
         }
+
+        repository.crear(socio);
 
         return mapToSocioDto.apply(socio);
     }
@@ -96,24 +102,12 @@ public class SocioServiceImpl implements SocioService {
 
             throw new RuntimeException("El socio no tiene un objetivo asignado.");
         }
-        if (estaCumplido) {
-            var not = Notificacion.builder()
-                    .socio(socio)
-                    .descripcion("objetivo cumpido")
-                    .mensaje("grande")
-                    .build();
 
-            notificadorSerivice.notificar(not);
-            repository.actualizarTrofeos(socioId, "trofeo a la dedicacion");
+        if (Boolean.TRUE.equals(estaCumplido)) {
+            addTrophy(socio, TipoDeTrofeoDto.DEDICACION);
         }
-        if (socio.getMediciones().stream().count() > 3) {
-            var notCreido = Notificacion.builder()
-                    .socio(socio)
-                    .descripcion("segui pesandote")
-                    .mensaje("grande")
-                    .build();
-            notificadorSerivice.notificar(notCreido);
-            repository.actualizarTrofeos(socioId, "trofeo al creido");
+        if (Boolean.TRUE.equals(socio.getMediciones().stream().count() > 3)) {
+            addTrophy(socio, TipoDeTrofeoDto.CREIDO);
         }
         return "medicion registrada";
     }
@@ -160,5 +154,16 @@ public class SocioServiceImpl implements SocioService {
         }
 
         return entrenamientos;
+    }
+
+
+    private void addTrophy(Socio socio, TipoDeTrofeoDto trofeoDto) {
+        attach(new ObservadorNotificacion());
+        attach(new ObservadorTrofeo());
+        listObservers.forEach(o -> o.agregarTrofeo(socio, trofeoDto));
+    }
+
+    private void attach(IObserver observer) {
+        listObservers.add(observer);
     }
 }

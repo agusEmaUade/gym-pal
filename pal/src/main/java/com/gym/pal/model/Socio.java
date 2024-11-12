@@ -23,5 +23,5 @@ public class Socio {
     private String pass;
     private String email;
     private Objetivo objetivo;
-    private List<String> trofeos;
+    private List<Trofeo> trofeos;
 }

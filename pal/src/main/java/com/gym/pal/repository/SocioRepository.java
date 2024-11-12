@@ -2,6 +2,7 @@ package com.gym.pal.repository;
 
 import com.gym.pal.model.Medicion;
 import com.gym.pal.model.Socio;
+import com.gym.pal.model.Trofeo;
 import com.gym.pal.service.objetivo.Objetivo;
 import org.springframework.stereotype.Service;
 
@@ -59,11 +60,11 @@ public class SocioRepository implements ISocioRepository{
         });
     }
 
-    public void actualizarTrofeos(String socioId, String trofeo) {
+    public void actualizarTrofeos(String socioId, Trofeo trofeo) {
         Optional<Socio> socioOpt = findById(socioId);
 
         socioOpt.ifPresent(socio -> {
-            List<String> trofeos = socio.getTrofeos();
+            List<Trofeo> trofeos = socio.getTrofeos();
 
             if (trofeos == null) {
                 trofeos = new ArrayList<>();

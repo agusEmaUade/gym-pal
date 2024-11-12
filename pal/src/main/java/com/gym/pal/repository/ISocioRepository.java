@@ -2,6 +2,7 @@ package com.gym.pal.repository;
 
 import com.gym.pal.model.Medicion;
 import com.gym.pal.model.Socio;
+import com.gym.pal.model.Trofeo;
 import com.gym.pal.service.objetivo.Objetivo;
 
 import java.util.List;
@@ -20,5 +21,5 @@ public interface ISocioRepository {
 
     void setearObjetivo(String socioId, Objetivo objetivo);
 
-    void actualizarTrofeos(String socioId, String trofeo);
+    void actualizarTrofeos(String socioId, Trofeo trofeo);
 }
